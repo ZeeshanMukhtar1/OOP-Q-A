@@ -1,6 +1,57 @@
 ## Object Oriented programming Q&A
 
+- Hey Juniors, it's **_[Zeeshan Mukhtar](https://www.instagram.com/zeshanmukhtar01/)_** I created this repository to help you all understand the basics of object-oriented programming (OOP). I understand that OOP can be a challenging concept to grasp, especially for those who are new to programming. That's why I've made sure that the programs in this repository are beginner-friendly and easy to understand. My goal is to help you all become more confident and skilled in OOP. So, feel free to explore the programs and let me know if you have any questions!
+
 ### Theory section
+
+<details>
+<summary>constructor  and destructor  </summary>
+  
+In object-oriented programming, a constructor is a special method that is called when an object is created, while a destructor is a special method that is called when an object is destroyed. The constructor is responsible for initializing the object's state, while the destructor is responsible for cleaning up any resources that the object may have acquired during its lifetime.
+
+Here's an example of a constructor and destructor in C++:
+
+```
+#include <iostream>
+using namespace std;
+
+class MyClass {
+public:
+    // Constructor
+    MyClass() {
+        cout << "Constructor called" << endl;
+    }
+
+    // Destructor
+    ~MyClass() {
+        cout << "Destructor called" << endl;
+    }
+};
+
+int main() {
+    // Create an object of MyClass
+    MyClass myObject;
+
+    // The object will be destroyed automatically when main() exits
+    return 0;
+}
+
+
+```
+
+In this example, the class MyClass has a constructor and a destructor. The constructor is called when an object of MyClass is created, and the destructor is called when the object is destroyed. When main() is executed, it creates an object of MyClass named myObject. When main() exits, myObject is destroyed, and the destructor is called.
+
+The output of the program will be:
+
+```
+Constructor called
+Destructor called
+
+```
+
+This demonstrates that the constructor is called when the object is created, and the destructor is called when the object is destroyed. Note that the destructor is automatically called when the object goes out of scope, so we don't need to explicitly call it.
+
+</details>
 
 <details>
 <summary>Local variables</summary>
@@ -100,7 +151,98 @@ int main() {
 
 ```
 
-## </details>
+ </details>
+
+<details>
+<summary>C++ program to implement the Traveler class to calculate trip fare and display trip information</summary>
+
+```
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Traveler {
+private:
+    float distance; // Distance in km
+    float fare; // Fare in Rs.
+    string startLoc; // Starting location
+    string endLoc; // Ending location
+
+public:
+    // Constructor to initialize distance and fare to zero, and starting location to "abc"
+    Traveler() {
+        distance = 0;
+        fare = 0;
+        startLoc = "abc";
+    }
+
+    // Member function to input distance, starting location, and ending location
+    void getInto() {
+        cout << "Enter distance in km: ";
+        cin >> distance;
+
+        cout << "Enter starting location: ";
+        cin >> startLoc;
+
+        cout << "Enter ending location: ";
+        cin >> endLoc;
+    }
+
+    // Member function to calculate fare based on distance traveled
+    void calculateFare() {
+        if (distance <= 30) {
+            fare = 70;
+        } else {
+            fare = 70 + ((distance - 30) * 6);
+        }
+    }
+
+    // Member function to display the trip information
+    void showInfo() {
+        cout << "Trip information: " << endl;
+        cout << "Starting location: " << startLoc << endl;
+        cout << "Ending location: " << endLoc << endl;
+        cout << "Distance traveled: " << distance << " km" << endl;
+        cout << "Fare charged: Rs. " << fare << endl;
+    }
+};
+
+int main() {
+    // Create a Traveler object
+    Traveler traveler;
+
+    // Get user input for trip details
+    traveler.getInto();
+
+    // Calculate the fare for the trip
+    traveler.calculateFare();
+
+    // Display the trip information to the user
+    traveler.showInfo();
+
+    return 0;
+}
+
+
+```
+
+In this program, we define the `Traveler` class, which has data members for distance, fare, starting location, and ending location. We also define a constructor to initialize the distance and fare to zero, and the starting location to "abc". The `getInto` member function allows the user to input the distance, starting location, and ending location, while the `calculateFare` member function calculates the fare based on the distance traveled. Finally, the `showInfo` member function displays the trip information to the user.
+
+When the program is run, it prompts the user to input the trip details, calculates the fare, and displays the trip information in a user-friendly manner. Here's an example output:
+
+```
+Enter distance in km: 50
+Enter starting location: BZU Lodhran
+Enter ending location: BZU Multan
+Trip information:
+Starting location: BZU Lodhran
+Ending location: BZU Multan
+Distance traveled: 50 km
+Fare charged: Rs. 310
+
+```
+
+ </details>
 
 <details>
 <summary>A C++ program that contains the base class "Animal" with derived classes "Sheep", "Goat", "Cow", "Buffalo", and "Zebra". The derived classes override the parent class method and implement their own way of eating.</summary>
