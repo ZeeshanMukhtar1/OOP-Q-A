@@ -6,7 +6,6 @@
 
 <details>
 <summary>constructor  and destructor  </summary>
-  
 In object-oriented programming, a constructor is a special method that is called when an object is created, while a destructor is a special method that is called when an object is destroyed. The constructor is responsible for initializing the object's state, while the destructor is responsible for cleaning up any resources that the object may have acquired during its lifetime.
 
 Here's an example of a constructor and destructor in C++:
@@ -50,6 +49,82 @@ Destructor called
 ```
 
 This demonstrates that the constructor is called when the object is created, and the destructor is called when the object is destroyed. Note that the destructor is automatically called when the object goes out of scope, so we don't need to explicitly call it.
+
+</details>
+<details>
+<summary>purpose of a constructor</summary>
+The purpose of a constructor in object-oriented programming is to initialize the state of an object when it is created.
+
+</details>
+<details>
+<summary>Access specifiers</summary>
+Access specifiers in C++ are keywords that define the level of access to the members of a class from outside the class. There are three access specifiers: public, private, and protected. The public access specifier allows the members of a class to be accessed by any code, the private access specifier restricts the access to only the member functions and friends of the class, while the protected access specifier is similar to private but allows access by derived classes. Access specifiers help to enforce encapsulation and abstraction in object-oriented programming.
+
+</details>
+<details>
+<summary>types of inheritance</summary>
+
+- Single Inheritance :  
+  A derived class is inherited from a single base class.
+
+- Multiple Inheritance :  
+  A derived class is inherited from multiple base classes.
+
+- Multilevel Inheritance :  
+  A derived class is inherited from a base class, which is itself derived from another base class.
+
+- Hierarchical Inheritance :  
+  Multiple derived classes are inherited from a single base class.
+
+- Hybrid Inheritance :  
+  This is a combination of multiple inheritance and multilevel inheritance. It involves multiple inheritance paths and diamond inheritance problems.
+
+</details>
+
+<details>
+<summary>Base Class & Derieved class</summary>
+In object-oriented programming, a base class (also known as a parent class) is a class that is used as the starting point for creating other classes, called derived classes (also known as child classes or subclasses).
+
+A derived class inherits all the member variables and member functions of its base class, and it can also add its own member variables and member functions. This is known as inheritance.
+
+For example, consider a base class `Shape` that has a member function `getArea()` and two derived classes `Rectangle` and `Circle` that inherit from Shape. The Rectangle and Circle classes can add their own member variables and member functions, in addition to `getArea()` inherited from Shape.
+
+```
+class Shape {
+public:
+    virtual double getArea() { return 0; }
+};
+
+class Rectangle : public Shape {
+private:
+    double width, height;
+
+public:
+    Rectangle(double w, double h) : width(w), height(h) {}
+
+    double getArea() override {
+        return width * height;
+    }
+};
+
+class Circle : public Shape {
+private:
+    double radius;
+
+public:
+    Circle(double r) : radius(r) {}
+
+    double getArea() override {
+        return 3.14159 * radius * radius;
+    }
+};
+
+
+```
+
+In the above example, `Shape` is the base class, and `Rectangle` and Circle are the derived classes. Rectangle and Circle inherit the `getArea()` function from Shape, and they each provide their own implementation of `getArea()` to calculate their own area.
+
+When you create an object of a derived class, it contains all the member variables and member functions of its base class, as well as any member variables and member functions that it has added itself. This allows you to create objects that have a combination of behavior and properties from both the base class and the derived class.
 
 </details>
 
